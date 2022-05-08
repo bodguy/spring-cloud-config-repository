@@ -1,3 +1,11 @@
-env:
-  profile: dev
-  contents: this is test contents
+spring:
+  profiles: dev
+  application:
+    name: gw
+  cloud:
+    gateway:
+      routes:
+        - id: default_path
+          uri: http://localhost:8081/
+          predicates:
+            - Path=/**
